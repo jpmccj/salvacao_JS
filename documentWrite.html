@@ -8,9 +8,11 @@
 <body>
     <p id="text">Olá mudo!!</p>
     <script>
-        let nome = "francisco"
-        document.getElementById("text").innerText = nome
-        
+        let anoNascimento = prompt("olá, ano de nascimento")
+        let dataAtual = prompt("Data atual")
+        let calculo = dataAtual - anoNascimento
+        document.getElementById("text").innerText = calculo
+
     </script>
 </body>
 </html>
