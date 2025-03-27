@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prompt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <center><h1>seu perfil</h1></center>
+    </header>
+    <!-- elementos onde as informaçoes são exibidas -->
+    <section>
+    <div id = "nome"></div>
+    <div id = "idade"></div>
+    <div id = "cidade"></div>
+    <div id = "jogoFavorito"></div>
+    </section>
+    <script>
+        //crie um codigo javascript que capture os dados
+        //nome, idade, cidade, jogofavorito via pronpt e mostre nas divis
+
+        const nome = prompt("Digite seu nome:");
+        const idade = prompt("Digite sua idade:");
+        const cidade = prompt("Digite sua cidade:");
+        const jogoFavorito = prompt("Digite seu jogo favorito:");
+        if(isNaN(idade)){
+            alert("digite um numero")
+            idade="digite um numero"
+        }
+        
+        document.getElementById("nome").innerHTML = `<strong>Nome:</strong> ${nome}`;
+        document.getElementById("idade").innerHTML = `<strong>Idade:</strong> ${idade}`;
+        document.getElementById("cidade").innerHTML = `<strong>Cidade:</strong> ${cidade}`;
+        document.getElementById("jogoFavorito").innerHTML = `<strong>Jogo Favorito:</strong> ${jogoFavorito}`;
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
