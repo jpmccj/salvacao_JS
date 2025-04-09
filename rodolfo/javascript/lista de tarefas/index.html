@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista de tarefas</title>
+   
+    <style>
+        button{
+            padding: 8px 15px;
+            background-color: rgb(28, 89, 100);
+            color: aliceblue;
+            border: none;
+            cursor: pointer;
+        }
+        #inputTarefa{
+            padding: 8px;
+            width: 70%;
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+        }
+        li{
+            padding: 8px;
+            background-color: #f9f9f9;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        body{
+            background-color: rgb(61, 78, 97);
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>lista de tarefas</h1>
+    <input type="text" id="inputTarefa" placeholder="Digite uma nova tarefa">
+    <button onclick="adicionarTarefa()"Adicio>Adicionar</button>
+    
+
+    <ul id="listaTarefa"></ul>
+    <script src="javascript.js"></script>
+
+    
+</body>
+</html>

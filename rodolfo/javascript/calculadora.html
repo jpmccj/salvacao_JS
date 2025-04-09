@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculadora Simples</h1>
+    <button onclick="calculadora()">Fazer Cálculo</button>
+    <div id="resultado"></div>
+
+    <script>
+        function calculadora() {
+            let num1 = parseFloat(prompt("Digite o primeiro número:").trim());
+            let num2 = parseFloat(prompt("Digite o segundo número:").trim());
+
+            if (isNaN(num1) || isNaN(num2)) {
+                return alert("Por favor, digite números válidos.");
+            }
+
+            let operacao = prompt("Escolha a operação (+, -, *, /):").trim();
+
+            let resultado = {
+                "+": num1 + num2,
+                "-": num1 - num2,
+                "*": num1 * num2,
+                "/": num2 !== 0 ? num1 / num2 : "Erro! Divisão por zero."
+            }[operacao];
+
+            if (resultado === undefined) {
+                return alert("Operação inválida! Use apenas +, -, * ou /.");
+            }
+
+            document.getElementById("resultado").innerHTML = `Resultado: ${isNaN(resultado) ? resultado : resultado.toFixed(2)}`;
+        }
+    </script>
+
+</body>
+</html>

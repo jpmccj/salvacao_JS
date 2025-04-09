@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatura</title>
+</head>
+<body>
+    <center><h1>Temperatura</h1></center>
+    <hr>
+    <button onclick="converter()">Converter</button>
+    <div id="resultado"></div>
+    
+    <script>
+        function converter(){
+            let temperaturaC = parseFloat(prompt("Digite a temperatura em °C").trim());
+
+            if (!isNaN(temperaturaC)) {
+                let calculo = (temperaturaC * 9/5) + 32;
+                document.getElementById("resultado").innerHTML = 
+                    `A temperatura em Fahrenheit é: ${calculo.toFixed(2)} °F`;
+            } else {
+                document.getElementById("resultado").innerHTML = "Por favor, insira um valor numérico válido.";
+            }
+        }
+    </script>
+</body>
+</html>

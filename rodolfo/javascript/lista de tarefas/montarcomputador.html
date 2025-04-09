@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>montar computador</title>
+    <style>
+        body {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgb(255, 255, 255);
+            ;
+        }
+
+        .categoria {
+            background-color: #f8f8f8;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .opcoes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .opcao {
+            background-color: white;
+            border: 2px solid #ddd;
+            pad: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .selecionado {
+            border-color: #2196f3;
+            background-color: #f8f8f8;
+        }
+
+        #montagem {
+            background-color: #e0e0e0;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>monte seu computador</h1>
+    <div id="montagem">
+        <h3>📦sua montagem:</h3>
+        <p>Placa:<span id="placaEscolhida">nenhuma</p>
+        <p>Fonte:<span id="FonteEscolhida">nenhuma </p>
+        <p>Disco:<span id="DiscoEscolhida">nenhuma</p>
+        <p>Memoria:<span id="MemoriaEscolhida">nenhuma</p>
+        <p>Gabinete:<span id="GabineteEscolhida">nenhuma</p>
+        <p>Pasta:<span id="PastaEscolhida">nenhuma</p>
+        <p>Monitor:<span id="MonitorEscolhida">nenhuma</p>
+        <p>Mouse:<span id="MouseEscolhida">nenhuma</p>
+        <p>Teclado:<span id="TecladoEscolhida">nenhuma</p>
+
+    </div>
+    <div class="categoria">
+        <h2>placa-mãe</h2>
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarPlaca(this,'asus B550')">
+                Asus B550
+            </div>
+            <div class="opcao" onclick="selecionarPlaca(this,'Gigabyte z690')">
+                Gigabyte z690
+            </div>
+        </div>
+    </div>
+    <div class="categoria">
+        <h2>Fonte</h2>
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarFonte(this,'Redragon RGPS 500W 80 Plus Bronze')">
+                Redragon RGPS
+            </div>
+            <div class="opcao" onclick="selecionarFonte(this,'Corsair CX550M 550W 80Plus Bronze')">
+                Corsair CX550M
+            </div>
+        </div>
+    </div>
+    <div class="categoria">
+        <h2>Disco</h2>
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarDisco(this,'SSD Kingston NV3 500GB M.2 NVMe')">
+                SSD Kingston
+            </div>
+            <div class="opcao" onclick="selecionarDisco(this,'Corsair CX550M 550W 80Plus Bronze')">
+                Corsair CX550M
+            </div>
+        </div>
+    </div>
+    <div class="categoria">
+        <h2>Memória</h2>
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarMemoria(this,'Memória DDR4 Kingston Fury, 8GB, 3200MHz')">
+                2x Memória DDR4 
+            </div>
+            <div class="opcao" onclick="selecionarMemoria(this,'Memória DDR4 XPG GAMMIX D35, 16GB, 3200MHz')">
+                Memória DDR4 
+            </div>
+        </div>
+    </div>
+    <div class="categoria">
+        <h2>Gabinete</h2>
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarGabinete(this,'Gabinete Gamer SuperFrame Xtrike, RGB, Mid Tower, Acrílico')">
+                Gabinete Gamer SuperFrame
+            </div>
+            <div class="opcao" onclick="selecionarGabinete(this,'Gabinete Gamer Montech XR, Mid Tower, Black, ATX')">
+                Gabinete Gamer Montech
+            </div>
+        </div>
+    </div>
+    <div class="categoria">
+        <h2>Pasta térmica</h2>
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarPasta(this,'asta Térmica Arctic Silver 5 AS5-3.5G 3,5g')">
+                asta Térmica Arctic Silver 5 AS5-3.5G 3,5g
+            </div>
+            <div class="opcao" onclick="selecionarPasta(this,'Pasta Térmica Arctic Silver Ceramique 2 2,7gr')">
+                Pasta Térmica Arctic Silver Ceramique 2 2,7gr
+            </div>
+        </div>
+    </div>
+    <div class="categoria">
+        <h2>Monitor</h2>
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarMonitor(this,'Monitor Gamer SuperFrame Prisma V3, 27 Pol, Fast IPS, Quad HD, 1ms, 180Hz')">
+                Monitor Gamer SuperFrame Prisma
+            </div>
+            <div class="opcao" onclick="selecionarMonitor(this,'Monitor Gamer Samsung Odyssey G30, 24, Full HD, 144Hz, VA, 1ms')">
+                Monitor Gamer Samsung Odyssey 
+            </div>
+        </div>
+    </div>
+    <div class="categoria">
+        <h2>Mouse</h2>
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarMouse(this,'Mouse Gamer Redragon Cobra V2 RGB, 12400 DPI')">
+                Mouse Gamer Redragon Cobra
+            </div>
+            <div class="opcao" onclick="selecionarMouse(this,'Mouse Corsair Gamer Harpoon CH-9301011-NA RGB 6 Botões 6000 DPI Black')">
+                Mouse Corsair Gamer Harpoon 
+            </div>
+        </div>
+    </div>
+    <div class="categoria">
+        <h2>Teclado</h2>
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarTeclado(this,'Teclado Mecânico Gamer Sharkoon Shark Skiller, RGB, Switch Kailh Blue, ABNT2 - SGK3')">
+                Teclado Mecânico Gamer Sharkoon Shark Skiller
+            </div>
+            <div class="opcao" onclick="selecionarTeclado(this,'Teclado Mecânico Gamer Redragon Anivia Preto RGB, ABNT2')">
+                Teclado Mecânico Gamer Redragon Anivia 
+            </div>
+        </div>
+    </div>
+    <script>
+        function selecionarPlaca(elemento, nome) {
+
+            document.querySelectorAll('.categoria:nth-child(1) .opcao')
+                .forEach(op => {
+                    op.classList.remove('selecionado')
+                })
+
+            elemento.classList.add('selecionado')
+            document.getElementById('placaEscolhida').textContent = nome
+        }
+        function selecionarFonte(elemento, nome) {
+
+            document.querySelectorAll('.categoria:nth-child(1) .opcao')
+                .forEach(op => {
+                    op.classList.remove('selecionado')
+                })
+
+            elemento.classList.add('selecionado')
+            document.getElementById('FonteEscolhida').textContent = nome
+        }
+        function selecionarDisco(elemento, nome) {
+
+            document.querySelectorAll('.categoria:nth-child(1) .opcao')
+                .forEach(op => {
+                    op.classList.remove('selecionado')
+                })
+
+            elemento.classList.add('selecionado')
+            document.getElementById('DiscoEscolhida').textContent = nome
+        }
+        function selecionarMemoria(elemento, nome) {
+
+            document.querySelectorAll('.categoria:nth-child(1) .opcao')
+                .forEach(op => {
+                    op.classList.remove('selecionado')
+                })
+
+            elemento.classList.add('selecionado')
+            document.getElementById('MemoriaEscolhida').textContent = nome
+        }
+        function selecionarGabinete(elemento, nome) {
+
+            document.querySelectorAll('.categoria:nth-child(1) .opcao')
+                .forEach(op => {
+                    op.classList.remove('selecionado')
+                })
+
+            elemento.classList.add('selecionado')
+            document.getElementById('GabineteEscolhida').textContent = nome
+        }
+        function selecionarPasta(elemento, nome) {
+
+            document.querySelectorAll('.categoria:nth-child(1) .opcao')
+                .forEach(op => {
+                    op.classList.remove('selecionado')
+                })
+
+            elemento.classList.add('selecionado')
+            document.getElementById('PastaEscolhida').textContent = nome
+        }
+        function selecionarMonitor(elemento, nome) {
+
+            document.querySelectorAll('.categoria:nth-child(1) .opcao')
+                .forEach(op => {
+                    op.classList.remove('selecionado')
+                })
+
+            elemento.classList.add('selecionado')
+            document.getElementById('MonitorEscolhida').textContent = nome
+        }
+        function selecionarMouse(elemento, nome) {
+
+            document.querySelectorAll('.categoria:nth-child(1) .opcao')
+                .forEach(op => {
+                    op.classList.remove('selecionado')
+                })
+
+            elemento.classList.add('selecionado')
+            document.getElementById('MouseEscolhida').textContent = nome
+        }
+        function selecionarTeclado(elemento, nome) {
+
+            document.querySelectorAll('.categoria:nth-child(1) .opcao')
+                .forEach(op => {
+                    op.classList.remove('selecionado')
+                })
+
+            elemento.classList.add('selecionado')
+            document.getElementById('TecladoEscolhida').textContent = nome
+        }
+
+    </script>
+
+</body>
+
+</html>

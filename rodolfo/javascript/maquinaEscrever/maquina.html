@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina de Escrever 2.0</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: black;
+            font-family: 'Courier New';
+            color: #00ff00;
+            flex-direction: column;
+            text-align: center;
+        }
+ 
+        #MaquinaEscrever-text {
+            font-size: 24px;
+            border-right: 2px solid #00ff00;
+            white-space: nowrap;
+            animation: piscarCursor 0.7s infinite;
+ 
+        }
+ 
+        @keyframes piscarCursor {
+            from {
+                border-right-color: transparent;
+            }
+ 
+            to {
+                border-right: #00ff00;
+            }
+        }
+ 
+        input {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #00ff00;
+            background-color: black;
+            color: #00ff00;
+            width: 300px;
+        }
+ 
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #00ff00;
+            color: black;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+ 
+        button:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+ 
+<body>
+    <h1>Máquina de Escrever 2.0</h1>
+    <input type="text" id="inputTexto" placeholder="Digite seu texto aqui...">
+    <div>
+        <button id="btnIniciar">Iniciar Transcrição</button>
+        <button id="btnLimpar">Limpar</button>
+    </div>
+    <div id="MaquinaEscrever-text"></div>
+ 
+    <script>
+ 
+        function escreverTexto(texto, elemento, velocidade) {
+            let contador = 0;
+            elemento.style.animation = "none";
+ 
+            function digitar() {
+                if (contador < texto.length) {
+                    elemento.textContent += texto[contador];
+                    contador++;
+                    setTimeout(digitar, velocidade);
+                } else {
+                    elemento.style.borderRight = "none";
+                }
+            }
+            digitar();
+        }
+ 
+ 
+        document.getElementById("btnIniciar").addEventListener("click", function () {
+            const texto = document.getElementById("inputTexto").value;
+            const elemento = document.getElementById("MaquinaEscrever-text");
+            const velocidade = 200;
+            if (texto) {
+                elemento.textContent = "";
+                setTimeout(() => escreverTexto(texto, elemento, velocidade), 1000);
+            } else {
+                alert("Por favor, digite algum texto.");
+            }
+        });
+ 
+        document.getElementById("btnLimpar").addEventListener("click", function () {
+            document.getElementById("inputTexto").value = "";
+            document.getElementById("MaquinaEscrever-text").textContent = "";
+        });
+    </script>
+</body>
+ 
+</html>
