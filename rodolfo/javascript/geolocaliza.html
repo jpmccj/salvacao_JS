@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>localização atual</title>
+    <title>Localização Atual</title>
 </head>
 <body>
-    <h1>descubra sua localização</h1>
-
-    <button onclick="pegaLocalização()">onde estou?</button>
+    <h1>Descubra Sua Localização</h1>
+    <button onclick="pegaLocaliza()">Onde estudou?</button>
     <div id="resultado">
-        clique no botão para descobrir
-    </div>
-
+        Clique no botão para ver sua localização.
+       
+        <script>
+            function pegaLocaliza() {
+                document.getElementById("resultado").innerHTML = "Buscando localização...";
+                if("geolocation" in navigator){
+                    navigator.geolocation.getCurrentPosition(function(posição){
+                        const lat = posição.coords.latitude;
+                        const lon = posição.coords.longitude;
+                        document.getElementById("resultado").innerHTML = `Sua localização é:<br> Latitude: ${lat}, <br> Longitude: ${lon}`;
+                        }
+                    )
+               
+                }else{
+                    document.getElementByid('resultado').innerHTML = "Seu Navegador não suporta geolocalização."
+                }
+            }
+        </script>
 </body>
 </html>
