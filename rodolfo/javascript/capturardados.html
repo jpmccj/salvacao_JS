@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>capturar dados</title>
+</head>
+
+<body>
+    <h1>dados dos sistemas</h1>
+    <button onclick="mostrarInfoSistema()">
+        clique para ver as informaçoes do sistema
+    </button>
+    <script>
+        function mostrarInfoSistema() {
+            const navegador = navigator.userAgent
+            const sistemaoperacional = navigator.platform
+            const idioma = navigator.language
+            //detecta sistema operacional
+            let sistema = "desconhecido"
+            if (navigator.userAgent.indexOf('Win') != -1) sistema = "windows"
+            if (navigator.userAgent.indexOf('Mac') != -1) sistema = "MacOs"
+            if (navigator.userAgent.indexOf('Linux') != -1) sistema = "Linux"
+            if (navigator.userAgent.indexOf('Android') != -1) sistema = "android"
+            if (navigator.userAgent.indexOf('IOS') != -1) sistema = "IOS"
+            //detecta navegador sistema
+            let navegadorNome = "desconhecido"
+            if(navegador.indexOf("Chrome") != -1 && 
+            navegador.indexOf("Edge") != -1 && 
+            navegador.indexOf("OPR") != -1 )
+            {
+                navegadorNome = "Google Chrome"
+            }
+            else if(navegador.indexOf("Edg") != -1){
+                navegadorNome="Microsoft Edge"
+            }
+            else if(navegador.indexOf("OPR") != -1){
+                navegadorNome="Opera"
+            }
+            else if(navegador.indexOf("Firefox") != -1){
+                navegadorNome="Mozilla Firefox"
+            }
+            else if(navegador.indexOf("Safari") != -1){
+                navegadorNome="Apple Safari"
+            }
+
+
+            //cria mensagem final
+            const mensagem = `informações do sistema:
+                        sistema operacional: ${sistema},
+                        navegador: ${navegadorNome},
+                        idioma: ${idioma}
+                        `
+            document.write(mensagem)
+        }
+    </script>
+
+
+</body>
+
+</html>
