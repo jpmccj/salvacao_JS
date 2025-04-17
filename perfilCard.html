@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Card</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* RESET CSS DO NAVEGADOR */
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Estilo Body */
+        body{
+            /* Gradiente */
+            background: linear-gradient(45deg, #000000, #ff0000);
+            /* Altura Mínima da tela Inteira */
+            min-height: 100vh;
+            display: flex;
+            /* Centraliza Horizontalmente */
+            justify-content: center;
+            /* Centraliza Verticalmente */
+            align-items: center;
+            /* Espaçamento Interno entre elementos*/
+            padding: 15px;
+        }
+        .container{
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .foto-perfil{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #4ecdc4;
+            object-fit: cover;/* Garante que a imagem cubra o espaço */
+        }
+
+        h1{
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        p{
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5; /* Espaçamento Entre linhas */
+        }
+        .links{
+            display: flex;
+            flex-direction: column; 
+            /*Direção dos elementos de cima para baixo - um abaixo do outro*/
+            gap: 12px;
+        }
+        .botao-link{
+            background: #4ecdc4;
+            color: aliceblue;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            text-decoration: none;
+            font-size:12px
+        }
+        #formContato{
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <img src="https://placehold.co/120x120?text=Foto+Perfil" class="foto-perfil">
+      <h1>Seu Nome Aqui</h1>
+      <p>Desenvolvedor Web | Professor de Programação</p>
+      <div class="links">
+          <a href="#" class="botao-link">Portfólio</a>
+          <a href="#" class="botao-link">Agenda Consultoria</a>
+          <a href="#" class="botao-link">Blog</a>
+          
+          <button id="botao-mensagem" class="botao-link">Enviar Mensagem</button>
+          
+          <form id="formContato" onsubmit="#">
+              <textarea id="mensagem" class="campo-mensagem" required="">    
+              </textarea>
+              <button type="submit" class="botao-enviar">Enviar via Whats</button>
+          </form>
+      </div>
+      <div class="redes-sociais">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+          <a href="#"><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+  </body>
+</html>
