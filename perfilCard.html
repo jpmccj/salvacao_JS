@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -7,100 +7,151 @@
     <title>Perfil Card</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
-        /* RESET CSS DO NAVEGADOR */
-        *{
-            margin:0;
+        /*RESET CSS DO NAVEGADOR*/
+        * {
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
         }
-        /* Estilo Body */
-        body{
-            /* Gradiente */
-            background: linear-gradient(45deg, #000000, #ff0000);
-            /* Altura Mínima da tela Inteira */
+
+        body {
+
+            background: #020024;
+            background: radial-gradient(circle,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
             min-height: 100vh;
             display: flex;
-            /* Centraliza Horizontalmente */
             justify-content: center;
-            /* Centraliza Verticalmente */
             align-items: center;
-            /* Espaçamento Interno entre elementos*/
             padding: 15px;
+
         }
-        .container{
+
+        .container {
             background: #fff;
             padding: 25px;
             border-radius: 15px;
             width: 100%;
             max-width: 400px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
-        .foto-perfil{
+        .foto-perfil {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             margin-bottom: 15px;
-            border: 3px solid #4ecdc4;
-            object-fit: cover;/* Garante que a imagem cubra o espaço */
+            border: 3px solid #00D4FF;
+            object-fit: cover;
         }
 
-        h1{
+        h1 {
             color: #333;
             margin-bottom: 10px;
-            font-size: 14px;
+            font-size: 1.5rem;
         }
-        p{
+
+        p {
             color: #666;
             margin-bottom: 20px;
-            line-height: 1.5; /* Espaçamento Entre linhas */
+            line-height: 1.5;
         }
-        .links{
+
+        .links {
             display: flex;
-            flex-direction: column; 
-            /*Direção dos elementos de cima para baixo - um abaixo do outro*/
+            flex-direction: column;
             gap: 12px;
         }
-        .botao-link{
-            background: #4ecdc4;
+
+        .botao-link {
+            background:#00D4FF;
             color: aliceblue;
             padding: 12px;
             border-radius: 8px;
             border: none;
             text-decoration: none;
-            font-size:12px
         }
-        #formContato{
+
+        #formContato {
             margin-top: 15px;
             display: none;
         }
+
+        .campo-mensagem {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #00D4FF;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .botao.enviar {
+            background: #00D4FF;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .redes-sociais {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
     </style>
 </head>
-<body>
+
+<body>    
     <div class="container">
-      <img src="https://placehold.co/120x120?text=Foto+Perfil" class="foto-perfil">
-      <h1>Seu Nome Aqui</h1>
-      <p>Desenvolvedor Web | Professor de Programação</p>
-      <div class="links">
-          <a href="#" class="botao-link">Portfólio</a>
-          <a href="#" class="botao-link">Agenda Consultoria</a>
-          <a href="#" class="botao-link">Blog</a>
-          
-          <button id="botao-mensagem" class="botao-link">Enviar Mensagem</button>
-          
-          <form id="formContato" onsubmit="#">
-              <textarea id="mensagem" class="campo-mensagem" required="">    
-              </textarea>
-              <button type="submit" class="botao-enviar">Enviar via Whats</button>
-          </form>
-      </div>
-      <div class="redes-sociais">
-          <a href="#"><i class="bi bi-instagram"></i></a>
-          <a href="#"><i class="bi bi-linkedin"></i></a>
-          <a href="#"><i class="bi bi-github"></i></a>
-      </div>
+        <img src="eueee.jfif" alt="Minha Foto" class="foto-perfil" onclick="abriModal()">
+        <h1>João Pedro</h1>
+        <p>Programador JR </p>
+        <div class="links">
+            <a href="#" class="botao-link">Portfólio</a>
+            
+           
+            <button id="botao-mensagem" class="botao-link" onclick="toggleForm()">Enviar Mensagem</button>
+
+            <form id="formContato" onSubmit="enviarMensagem(event)">
+                <textarea id="mensagem" class="campo-mensagem" required>
+             </textarea>
+                <button type="submit" class="botao-enviar">Enviar via Whatss</button>
+            </form>
+        </div>
+
+        <div class="redes-sociais">
+            
+            <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-magri-316282337/"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/jpmccj"><i class="bi bi-github"></i></a>
+        </div>
     </div>
-  </body>
+    <script>
+        let numeroWhatsapp = "+5517997735314"
+
+        function toggleForm() {
+            let form = document.getElementById("formContato");
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+            if (form.style.display === "block") {
+                setTimeout(() => document.querySelector('.campo-mensagem').focus(), 50)
+            }
+        }
+
+        function enviarMensagem(e) {
+            e.preventDefault()
+            let msg = document.querySelector('.campo-mensagem').value.trim()
+
+            window.open(`https://wa.me/${numeroWhatsapp}?text=${msg}`)
+
+            document.getElementById('formContato').reset()
+            document.getElementById('formContato').style.display = 'none'
+        }
+    </script>
+</body>
+
 </html>
